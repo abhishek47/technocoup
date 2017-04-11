@@ -209,8 +209,8 @@
 @media only screen and (max-width: 767px){
 
 	.loop-wrapper {
-       width: 100px;
-       height: 50px;
+       width: 80%;
+       height: 100px;
 	}
 	
 	.main-header .nav-outer{
