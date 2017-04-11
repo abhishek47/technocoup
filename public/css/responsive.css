@@ -207,6 +207,11 @@
 }
 
 @media only screen and (max-width: 767px){
+
+	.loop-wrapper {
+       width: 100px;
+       height: 50px;
+	}
 	
 	.main-header .nav-outer{
 		padding-right:0px;	
