@@ -31,28 +31,29 @@
     </script>
 </head>
 
-<body>
+<body >
 
 <div class="page-wrapper">
-    
-    <div class="preloader">
-        <span class="ti">
-      <i class="ti_truck">
-        <i class="ti_truck__cloud"></i>
-        <i class="ti_truck-window"></i>
-        <i class="ti_truck-sticker"></i>
-        <i class="ti_truck-bumper"></i>
-        <i class="ti_truck-wheel wheel-left"></i>
-        <i class="ti_truck-wheel wheel-right"></i>
-        <i class="ti_truck__road"></i>
-      </i>
-    </span> 
+       
+       <div id="preloader">
+        <div class="loop-wrapper" >
+          <h2><span>On The</span> Way...</h2>
+          <div class="sun"></div>
+          <div class="mountain"></div>
+          <div class="hill"></div>
+          <div class="tree"></div>
+          <div class="tree"></div>
+          <div class="tree"></div>
+          <div class="truck"></div>
+          <div class="wheels"></div>
+        </div> 
+       </div> 
 
-  </div>
+  
 
     
     <!-- Main Header / Header Style One-->
-    <header class="main-header header-style-one">
+    <header class="main-header header-style-one" style="display: none;">
         <!-- Header Top One-->
         <div class="header-top-one">
             <div class="auto-container">
@@ -345,6 +346,24 @@
 
 
 <script src="/js/jquery.js"></script> 
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+    
+    $('#preloader').delay(5000).fadeOut('slow',function(){
+          $(this).remove();
+          $('.main-header').fadeIn('fast');
+      });
+   
+});
+
+});
+
+</script>
+
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery-ui.js"></script>
 <script src="/js/revolution.min.js"></script>
