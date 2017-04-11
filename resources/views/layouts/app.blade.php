@@ -16,6 +16,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link href="/css/responsive.css" rel="stylesheet">
 
+<link href="/css/preloader.css" rel="stylesheet">
+
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
@@ -33,8 +35,21 @@
 
 <div class="page-wrapper">
     
-    <!-- Preloader -->
-    <div class="preloader"></div>
+    <div class="preloader">
+        <span class="ti">
+      <i class="ti_truck">
+        <i class="ti_truck__cloud"></i>
+        <i class="ti_truck-window"></i>
+        <i class="ti_truck-sticker"></i>
+        <i class="ti_truck-bumper"></i>
+        <i class="ti_truck-wheel wheel-left"></i>
+        <i class="ti_truck-wheel wheel-right"></i>
+        <i class="ti_truck__road"></i>
+      </i>
+    </span> 
+
+  </div>
+
     
     <!-- Main Header / Header Style One-->
     <header class="main-header header-style-one">
