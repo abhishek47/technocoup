@@ -355,7 +355,7 @@ jQuery(document).ready(function($) {
 // site preloader -- also uncomment the div in the header and the css style for #preloader
 $(window).load(function(){
     
-    $('#preloader').delay(5000).fadeOut('slow',function(){
+    $('#preloader').delay(3000).fadeOut('slow',function(){
           $(this).remove();
           $('.main-header').fadeIn('fast');
       });
