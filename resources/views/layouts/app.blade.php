@@ -44,6 +44,7 @@
           <div class="tree"></div>
           <div class="tree"></div>
           <div class="tree"></div>
+           <div class="rock"></div>
           <div class="truck"></div>
           <div class="wheels"></div>
         </div> 
