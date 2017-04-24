@@ -11,8 +11,8 @@
         padding: 0px
       }
     </style>
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAr-ysFYTqxcjFP32_d4n18YoRmHikAEX4&sensor=true"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAr-ysFYTqxcjFP32_d4n18YoRmHikAEX4&sensor=true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
    $(document).ready(function() {
     
