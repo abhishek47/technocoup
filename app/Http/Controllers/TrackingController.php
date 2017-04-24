@@ -14,7 +14,7 @@ class TrackingController extends Controller
        // $lastId = Location::create($request->all());  
 
    
-        return $request->all();
+        return "success";
     }
 
     
