@@ -22,4 +22,4 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::post('/trace', 'TrackingController@trace');
-Route::get('/trac', 'TrackingController@track');
+Route::get('/track', 'TrackingController@track');
