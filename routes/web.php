@@ -19,3 +19,6 @@ Route::get('/contact', 'PagesController@contact');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::post('/trace', 'TrackingController@trace');
