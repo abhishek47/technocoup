@@ -12,7 +12,7 @@ class TrackingController extends Controller
      public function trace(Request $request)
     {
         
-       // $lastId = Location::create($request->all());  
+       $lastId = Location::create($request->all());  
 
    
         return "success";
