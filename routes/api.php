@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/locations', function (Request $request) {
+Route::post('/locations', function (Request $request) {
     return \App\Location::all();
 });
+
+Route::post('/trace', 'TrackingController@trace');
