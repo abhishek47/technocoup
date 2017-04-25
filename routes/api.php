@@ -17,4 +17,4 @@ Route::get('/locations', function (Request $request) {
     return \App\Location::all();
 });
 
-Route::get('/trace', 'TrackingController@trace');
+Route::post('/trace', 'TrackingController@trace');
