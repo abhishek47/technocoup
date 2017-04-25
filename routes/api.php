@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/locations', function (Request $request) {
+Route::get('/locations', function (Request $request) {
     return \App\Location::all();
 });
 
