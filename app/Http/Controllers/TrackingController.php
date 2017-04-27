@@ -14,7 +14,7 @@ class TrackingController extends Controller
      public function trace(Request $request)
     { 
        
-        $firebase = (new Firebase\Factory())
+        $firebase = (new Factory())
             ->withCredentials('/firebase/firebase.json')
             ->withDatabaseUri('https://technocoup-165903.firebaseio.com/')
             ->create();
