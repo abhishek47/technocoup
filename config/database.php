@@ -106,4 +106,13 @@ return [
 
     ],
 
+    'firebase' => [
+        'host'      => 'https://technocoup-165903.firebaseio.com',
+        'token'     => 'AIzaSyAolQeHX7UuLRE1_psv6Zet2mI7vs4vFWs',
+        'timeout'   => 10,
+        'sync'      => false,           // OPTIONAL: auto-sync all Eloquent models with Firebase?
+       ],
+
+
+
 ];
