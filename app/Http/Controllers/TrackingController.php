@@ -7,7 +7,7 @@ use App\Http\Requests;
 
 use App\Location;
 
-use Kreait\Firebase;
+use Kreait\Firebase\Factory;
 
 class TrackingController extends Controller
 {
