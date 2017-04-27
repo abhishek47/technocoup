@@ -7,19 +7,25 @@ use App\Http\Requests;
 
 use App\Location;
 
-
+use \Firebase\FirebaseLib;
 
 class TrackingController extends Controller
 {
      public function trace(Request $request)
     { 
+        $DEFAULT_URL = 'https://technocoup-165903.firebaseio.com/';
+        $DEFAULT_TOKEN = 'AIzaSyAolQeHX7UuLRE1_psv6Zet2mI7vs4vFWs';
+     
+
+        $firebase = new FirebaseLib($DEFAULT_URL, $DEFAULT_TOKEN);
+
 
         $path = '/users/' . $request->get('phone') . '/locations';
         
         $data = $request->all();
 
         // Returns: (Array) Firebase response
-        return \Firebase::push($path, $data);
+        return $firebase->push($path, $data);
 
 
    
