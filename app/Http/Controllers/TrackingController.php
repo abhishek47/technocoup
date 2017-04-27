@@ -7,6 +7,8 @@ use App\Http\Requests;
 
 use App\Location;
 
+
+
 class TrackingController extends Controller
 {
      public function trace(Request $request)
@@ -15,9 +17,9 @@ class TrackingController extends Controller
         $path = '/users/' . $request->get('phone') . '/locations';
         
         $data = $request->all();
-        
+
         // Returns: (Array) Firebase response
-        return Firebase::push($path, $data);
+        return \Firebase::push($path, $data);
 
 
    
