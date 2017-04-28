@@ -151,7 +151,6 @@ function initialize() {
       {
          currentPolyline++;
          coordinates[currentPolyline] = [];
-         polyMarkers[currentPolyline] = [];
 
       }
     }
@@ -273,6 +272,11 @@ function drawSnappedPolyline() {
   polylines.push(snappedPolyline);
    
    var c = polylines.length-1;
+
+   if(polyMarkers[c] == null)
+   {
+      polyMarkers[c] = [];
+   }
     
     console.log(polyMarkers[c]);
     for(i=0; i< polyMarkers[c].length; i++){
@@ -288,6 +292,7 @@ function drawSnappedPolyline() {
         });
         
         polyMarkers[c].push(marker);
+
         
         var anchor = new google.maps.Point(20,25),
     size = new google.maps.Size(32,32),
