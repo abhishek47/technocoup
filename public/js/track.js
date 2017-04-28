@@ -132,6 +132,8 @@ function initialize() {
  coordinates[currentPolyline] = [];
 
  polyMarkers[currentPolyline] = [];
+
+
   
  
   var userId = '9922367414';  
@@ -271,10 +273,10 @@ function drawSnappedPolyline() {
   polylines.push(snappedPolyline);
    
     
-
+/*
     for(i=0; i< polyMarkers[currentPolyline].length; i++){
         polyMarkers[currentPolyline][i].setMap(null);
-    }
+    } */
 
    var marker = new google.maps.Marker({
           position: snappedCoordinates[0],
