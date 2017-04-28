@@ -151,6 +151,7 @@ function initialize() {
       {
          currentPolyline++;
          coordinates[currentPolyline] = [];
+         polyMarkers[currentPolyline] = [];
 
       }
     }
@@ -158,7 +159,7 @@ function initialize() {
     coordinates[currentPolyline].push(point);
 
      console.log(coordinates[currentPolyline]);
-     initMap(coordinates[currentPolyline]);
+     initMap(coordinates[currentPolyline],  polyMarkers[currentPolyline]);
   // ... 
   });
 
@@ -191,7 +192,7 @@ function initialize() {
 
 }
 
-function initMap(polyCordinates){
+function initMap(polyCordinates, pmarkers){
 
    
    map.setCenter(polyCordinates[0]);
@@ -207,12 +208,12 @@ function initMap(polyCordinates){
      var path = poly.getPath();
     polylines.push(poly);
     placeIdArray = [];
-    runSnapToRoad(path);
+    runSnapToRoad(path, pmarkers);
   
 }
 
 // Snap a user-created polyline to roads and draw the snapped path
-function runSnapToRoad(path) {
+function runSnapToRoad(path, pmarkers) {
   var pathValues = [];
   for (var i = 0; i < path.getLength(); i++) {
     pathValues.push(path.getAt(i).toUrlValue());
@@ -224,7 +225,7 @@ function runSnapToRoad(path) {
     path: pathValues.join('|')
   }, function(data) {
     processSnapToRoadResponse(data);
-    drawSnappedPolyline();
+    drawSnappedPolyline(pmarkers);
     getAndDrawSpeedLimits();
   });
 }
@@ -261,7 +262,7 @@ function processSnapToRoadResponse(data) {
         
 
 // Draws the snapped polyline (after processing snap-to-road response).
-function drawSnappedPolyline() {
+function drawSnappedPolyline(pmarkers) {
   var snappedPolyline = new google.maps.Polyline({
     path: snappedCoordinates,
     strokeColor: '#27ae60',
@@ -271,16 +272,10 @@ function drawSnappedPolyline() {
   snappedPolyline.setMap(map);
   polylines.push(snappedPolyline);
    
-   var c = polylines.length-1;
-
-   if(polyMarkers[c] == null)
-   {
-      polyMarkers[c] = [];
-   }
+   
     
-    console.log(polyMarkers[c]);
-    for(i=0; i< polyMarkers[c].length; i++){
-        polyMarkers[c][i].setMap(null);
+    for(i=0; i< pmarkers.length; i++){
+        pmarkers[i].setMap(null);
     } 
     
 
@@ -291,7 +286,7 @@ function drawSnappedPolyline() {
           title: 'Starting Position!'
         });
         
-        polyMarkers[c].push(marker);
+        pmarkers.push(marker);
 
         
         var anchor = new google.maps.Point(20,25),
@@ -317,7 +312,7 @@ function drawSnappedPolyline() {
           infowindow.open(map, endmarker);
         });
         
-        polyMarkers[c].push(endmarker);
+        pmarkers.push(endmarker);
     
 }
 
