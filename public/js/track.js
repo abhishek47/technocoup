@@ -246,7 +246,7 @@ function processSnapToRoadResponse(data) {
 function drawSnappedPolyline() {
   var snappedPolyline = new google.maps.Polyline({
     path: snappedCoordinates,
-    strokeColor: 'black',
+    strokeColor: 'red',
     strokeWeight: 3
   });
 
