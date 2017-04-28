@@ -3,100 +3,52 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>TechnoCoup | Track Your Trip</title>
+    <title>Track My Vehicle | Technocoup</title>
     <style>
-      html, body, #map-canvas {
+      html, body, #map {
         height: 100%;
         margin: 0px;
         padding: 0px
       }
+
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+
+      #bar {
+        width: 240px;
+        background-color: rgba(255, 255, 255, 0.75);
+        margin: 8px;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      #autoc {
+        width: 100%;
+        box-sizing: border-box;
+      }
     </style>
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAr-ysFYTqxcjFP32_d4n18YoRmHikAEX4&sensor=true"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-   $(document).ready(function() {
-    
-  /*  var polylinePlanCoordinates  = [];
-     var polyline_data = <?php echo json_encode( $locations ); ?>;
-     for (var i=0;i< polyline_data.length;i++ ){
-      polylinePlanCoordinates.push(new google.maps.LatLng(polyline_data[i]['lat'], polyline_data[i]['lng']));
-    }
-*/
-   
 
-  var polylinePlanCoordinates = [
-    <?php
-    //If konesi.php outputs ANYTHING, the map will fail to load. However, you should
-    //change the connection variable to $connection = mysqli_connect("HOST","USERNAME","PASSWORD","DATABASE");
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcV3dvZfjny181wWJGCl9otO-o2_0mHZM&libraries=drawing,places,geometry"></script>
+      
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+ <script src="/js/track.js"></script>  
+  </head>
 
-
-  
-    //Assuming route that lat and long coordinates are in multiple records and not in a array within a single record
-    //Loop through all records and echo out the positions
-    
-
-    foreach($locations as $location)
-    {
-       $lat = $location->lat;
-       $lon = $location->lng;
-       echo 'new google.maps.LatLng('.$lat.', '.$lon.'),';
-    }
-
-    ?>
-
-    ]; 
-    
-     console.log(polylinePlanCoordinates);
-
-    var mapOptions = {
-    zoom: 18,
-    center: polylinePlanCoordinates[0],
-    mapTypeId: google.maps.MapTypeId.TERRAIN
-    };
-
-
-   
-
-
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
-
-     var marker = new google.maps.Marker({
-          position: polylinePlanCoordinates[0],
-          map: map,
-          label: 'S',
-          title: 'Starting Position!'
-        });
-
- 
-
-    var flightPath = new google.maps.Polyline({
-        path: polylinePlanCoordinates,
-        geodesic: true,
-        strokeColor: '#cddc39',
-        strokeOpacity: 1.0,
-        strokeWeight: 5
-    });
-
-    flightPath.setMap(map);
-
-
-     var marker = new google.maps.Marker({
-          position: polylinePlanCoordinates[polylinePlanCoordinates.length-1],
-          map: map,
-          label: 'E',
-          title: 'End Position!'
-        });
-
-
-    });
-    
-    </script>
-    </head>
-    <body>
-        <div id="map-canvas"></div>
-    </body>
+  <body>
+    <div id="map"></div>
+    <div id="bar">
+      <p class="auto"><input type="text" id="autoc"/></p>
+      <p><a id="clear" href="#">Click here</a> to clear map.</p>
+    </div>
+  </body>
 </html>
-
