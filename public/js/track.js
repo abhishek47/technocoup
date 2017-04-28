@@ -277,16 +277,20 @@ function drawSnappedPolyline(pmarkers) {
     for(i=0; i< pmarkers.length; i++){
         pmarkers[i].setMap(null);
     } 
-    
-  
-   var marker = new google.maps.Marker({
-          position: snappedCoordinates[0],
+
+    pmarkers.forEach((function(cor, index){
+         var marker = new google.maps.Marker({
+          position: cor,
           map: map,
           label: 'S',
           title: 'Starting Position!'
         });
         
         pmarkers.push(marker);
+    }); 
+    
+  
+   
 
         
         var anchor = new google.maps.Point(20,25),
