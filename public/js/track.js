@@ -278,7 +278,7 @@ function drawSnappedPolyline(pmarkers) {
         pmarkers[i].setMap(null);
     } 
 
-    pmarkers.forEach((function(cor, index){
+    pmarkers.forEach(function(cor, index){
          var marker = new google.maps.Marker({
           position: cor,
           map: map,
