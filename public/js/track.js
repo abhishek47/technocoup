@@ -128,7 +128,7 @@ function initialize() {
 
   var database = firebase.database();
   
- coordinates[currentPolyline] = []];
+ coordinates[currentPolyline] = [];
   
  
   var userId = '9922367414';  
