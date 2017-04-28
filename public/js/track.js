@@ -195,7 +195,7 @@ function initialize() {
 function initMap(polyCordinates, pmarkers){
 
    
-   map.setCenter(polyCordinates[0]);
+   map.setCenter(polyCordinates[polyCordinates.length-1]);
   
   var poly = new google.maps.Polyline({
         path: polyCordinates,
@@ -274,11 +274,11 @@ function drawSnappedPolyline(pmarkers) {
    
    
     
-    /*for(i=0; i< pmarkers.length; i++){
+    for(i=0; i< pmarkers.length; i++){
         pmarkers[i].setMap(null);
-    } */
+    } 
 
-    snappedCoordinates.forEach(function(cor, index){
+    /*snappedCoordinates.forEach(function(cor, index){
          var marker = new google.maps.Marker({
           position: cor,
           map: map,
@@ -287,8 +287,16 @@ function drawSnappedPolyline(pmarkers) {
         });
         
         pmarkers.push(marker);
-    }); 
+    });*/ 
     
+    var marker = new google.maps.Marker({
+          position: snappedCoordinates[0],
+          map: map,
+          label: 'S',
+          title: 'Starting Position!'
+        });
+        
+        pmarkers.push(marker);
   
    
 
