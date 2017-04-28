@@ -7,6 +7,7 @@ var polylines = [];
 var snappedCoordinates = [];
 var coordinates = [];
 var  polylinePlanCoordinates = [];
+var polyMarkers = [];
 var markers = [];
 var currentPolyline = 0;
 function initialize() {
@@ -129,6 +130,8 @@ function initialize() {
   var database = firebase.database();
   
  coordinates[currentPolyline] = [];
+
+ polyMarkers[currentPolyline] = [];
   
  
   var userId = '9922367414';  
@@ -146,6 +149,7 @@ function initialize() {
       {
          currentPolyline++;
          coordinates[currentPolyline] = [];
+         polyMarkers[currentPolyline] = [];
 
       }
     }
@@ -265,10 +269,11 @@ function drawSnappedPolyline() {
 
   snappedPolyline.setMap(map);
   polylines.push(snappedPolyline);
-  
+   
+    
 
-    for(i=0; i<markers.length; i++){
-        markers[i].setMap(null);
+    for(i=0; i< polyMarkers[currentPolyline].length; i++){
+        polyMarkers[currentPolyline][i].setMap(null);
     }
 
    var marker = new google.maps.Marker({
@@ -278,7 +283,7 @@ function drawSnappedPolyline() {
           title: 'Starting Position!'
         });
         
-        markers.push(marker);
+        polyMarkers[currentPolyline].push(marker);
         
         var anchor = new google.maps.Point(20,25),
     size = new google.maps.Size(32,32),
@@ -303,7 +308,7 @@ function drawSnappedPolyline() {
           infowindow.open(map, endmarker);
         });
         
-        markers.push(endmarker);
+        polyMarkers[currentPolyline].push(endmarker);
     
 }
 
