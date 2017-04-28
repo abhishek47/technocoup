@@ -17,7 +17,7 @@ function initialize() {
     var hours = currentTime.getHours()
     var minutes = currentTime.getMinutes()
 
-    if (hours < 6 || hours >= 14){
+    if (hours < 6 || hours >= 17){
         console.log('night');
          var mapOptions = {
     zoom: 17,
@@ -104,7 +104,7 @@ function initialize() {
           ]
   };
     }
-    if(hours >= 6 && hours < 14){
+    if(hours >= 6 && hours < 17){
         console.log('day');
          var mapOptions = {
     zoom: 17,
@@ -274,9 +274,9 @@ function drawSnappedPolyline(pmarkers) {
    
    
     
-    for(i=0; i< pmarkers.length; i++){
+    /*for(i=0; i< pmarkers.length; i++){
         pmarkers[i].setMap(null);
-    } 
+    } */
     
 
    var marker = new google.maps.Marker({
