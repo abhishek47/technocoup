@@ -137,7 +137,8 @@ function initialize() {
     var point = new google.maps.LatLng(newPoint.lat, newPoint.lng);
     console.log(point);
     coordinates[0].push(point);
-     console.log(coordinates[0]);
+
+     console.log(coordinates[0][0]);
      initMap(coordinates[0]);
   // ... 
   });
