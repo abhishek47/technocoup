@@ -5,6 +5,7 @@ var drawingManager;
 var placeIdArray = [];
 var polylines = [];
 var snappedCoordinates = [];
+var coordinates = [];
 var  polylinePlanCoordinates = [];
 var markers = [];
 function initialize() {
@@ -126,7 +127,7 @@ function initialize() {
 
   var database = firebase.database();
   
- polylinePlanCoordinates = [];
+ coordinates[0] = polylinePlanCoordinates;
   
  
   var userId = '9922367414';  
@@ -135,9 +136,9 @@ function initialize() {
     newPoint = snapshot.val();
     var point = new google.maps.LatLng(newPoint.lat, newPoint.lng);
     console.log(point);
-    polylinePlanCoordinates.push(point);
-     console.log(polylinePlanCoordinates);
-     initMap(polylinePlanCoordinates);
+    coordinates[0].push(point);
+     console.log(coordinates[0]);
+     initMap(coordinates[0]);
   // ... 
   });
 
