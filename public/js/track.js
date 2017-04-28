@@ -273,7 +273,7 @@ function drawSnappedPolyline() {
   polylines.push(snappedPolyline);
    
     
-
+    console.log(polyMarkers[currentPolyline]);
     for(i=0; i< polyMarkers[currentPolyline].length; i++){
         polyMarkers[currentPolyline][i].setMap(null);
     } 
