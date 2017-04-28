@@ -141,6 +141,7 @@ function initialize() {
      if(coordinates[currentPolyline].length > 1){
      var lastPoint = coordinates[currentPolyline][coordinates[currentPolyline].length-1];
       var distance = google.maps.geometry.spherical.computeDistanceBetween (lastPoint, point);
+      console.log(distance);
       if(distance > 1000)
       {
          currentPolyline++;
