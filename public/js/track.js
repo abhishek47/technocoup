@@ -152,7 +152,7 @@ function initialize() {
    
     coordinates[currentPolyline].push(point);
 
-     console.log(currentPolyline);
+     console.log(coordinates[currentPolyline]);
      initMap(coordinates[currentPolyline]);
   // ... 
   });
@@ -186,45 +186,24 @@ function initialize() {
 
 }
 
-function initMap(polylinePlanCoordinates){
+function initMap(polyCordinates){
 
    
-   map.setCenter(polylinePlanCoordinates[0]);
+   map.setCenter(polyCordinates[0]);
   
   var poly = new google.maps.Polyline({
-        path: polylinePlanCoordinates,
+        path: polyCordinates,
         geodesic: true,
         strokeColor: '#27ae60',
         strokeOpacity: 1.0,
         strokeWeight: 5
-    });
-
-    
+    });    
     
      var path = poly.getPath();
     polylines.push(poly);
     placeIdArray = [];
     runSnapToRoad(path);
-    
-    
-
-  /* Snap-to-road when the polyline is completed.
-  drawingManager.addListener('polylinecomplete', function(poly) {
-    var path = poly.getPath();
-    polylines.push(poly);
-    placeIdArray = [];
-    runSnapToRoad(path);
-  });*/
-
-  // Clear button. Click to remove all polylines.
-  $('#clear').click(function(ev) {
-    for (var i = 0; i < polylines.length; ++i) {
-      polylines[i].setMap(null);
-    }
-    polylines = [];
-    ev.preventDefault();
-    return false;
-  });
+  
 }
 
 // Snap a user-created polyline to roads and draw the snapped path
