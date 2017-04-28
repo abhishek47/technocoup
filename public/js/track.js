@@ -160,7 +160,7 @@ function initMap(polylinePlanCoordinates){
   var poly = new google.maps.Polyline({
         path: polylinePlanCoordinates,
         geodesic: true,
-        strokeColor: 'red',
+        strokeColor: '#3498db',
         strokeOpacity: 1.0,
         strokeWeight: 5
     });
@@ -246,7 +246,7 @@ function processSnapToRoadResponse(data) {
 function drawSnappedPolyline() {
   var snappedPolyline = new google.maps.Polyline({
     path: snappedCoordinates,
-    strokeColor: 'red',
+    strokeColor: '#3498db',
     strokeWeight: 3
   });
 
