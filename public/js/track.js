@@ -160,7 +160,7 @@ function initMap(polylinePlanCoordinates){
   var poly = new google.maps.Polyline({
         path: polylinePlanCoordinates,
         geodesic: true,
-        strokeColor: '#cddc39',
+        strokeColor: 'red',
         strokeOpacity: 1.0,
         strokeWeight: 5
     });
