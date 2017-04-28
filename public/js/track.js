@@ -133,15 +133,15 @@ function initialize() {
  
   var userId = '9922367414';  
   database.ref('/users/' + userId + '/locations').on('child_added', function(snapshot) {
-    console.log(snapshot.val());
+   
     newPoint = snapshot.val();
    
     var point = new google.maps.LatLng(newPoint.lat, newPoint.lng);
-    console.log(point);
+   
      if(coordinates[currentPolyline].length > 1){
      var lastPoint = coordinates[currentPolyline][coordinates[currentPolyline].length-1];
       var distance = google.maps.geometry.spherical.computeDistanceBetween (lastPoint, point);
-      console.log(distance);
+  
       if(distance > 1000)
       {
          currentPolyline++;
