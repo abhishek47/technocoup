@@ -190,7 +190,7 @@ function drawSnappedPolyline() {
         var anchor = new google.maps.Point(20,25),
     size = new google.maps.Size(32,32),
     origin = new google.maps.Point(0.5,0.5);
-        var icon = new google.maps.MarkerImage('/public/images/truck32.png',size,origin,anchor);
+        var icon = new google.maps.MarkerImage('../images/truck32.png',size,origin,anchor);
         
          
     
