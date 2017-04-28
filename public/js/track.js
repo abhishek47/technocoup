@@ -274,9 +274,9 @@ function drawSnappedPolyline(pmarkers) {
    
    
     
-    for(i=0; i< pmarkers.length; i++){
+    /*for(i=0; i< pmarkers.length; i++){
         pmarkers[i].setMap(null);
-    } 
+    } */
 
     pmarkers.forEach(function(cor, index){
          var marker = new google.maps.Marker({
