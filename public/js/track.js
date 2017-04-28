@@ -151,7 +151,7 @@ function initialize() {
    
     coordinates[currentPolyline].push(point);
 
-     console.log(coordinates[currentPolyline]);
+     console.log(currentPolyline);
      initMap(coordinates[currentPolyline]);
   // ... 
   });
