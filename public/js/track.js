@@ -277,6 +277,7 @@ function drawSnappedPolyline() {
        markers[i].setMap(null);
     } 
     
+    markers = [];
     
     polylines.forEach(function(linepath, index) {
         var marker = new google.maps.Marker({
