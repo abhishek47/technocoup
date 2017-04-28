@@ -8,6 +8,7 @@ var snappedCoordinates = [];
 var coordinates = [];
 var  polylinePlanCoordinates = [];
 var markers = [];
+var currentPolyline = 0;
 function initialize() {
 
   var daynight = document.querySelector('header');
@@ -127,19 +128,31 @@ function initialize() {
 
   var database = firebase.database();
   
- coordinates[0] = polylinePlanCoordinates;
+ coordinates[currentPolyline] = []];
   
  
   var userId = '9922367414';  
   database.ref('/users/' + userId + '/locations').on('child_added', function(snapshot) {
     console.log(snapshot.val());
     newPoint = snapshot.val();
+   
     var point = new google.maps.LatLng(newPoint.lat, newPoint.lng);
     console.log(point);
-    coordinates[0].push(point);
+     if(coordinates[currentPolyline].length > 1){
+     var lastPoint = coordinates[currentPolyline][coordinates[currentPolyline].length-1];
+      var distance = google.maps.geometry.spherical.computeDistanceBetween (lastPoint, point);
+      if(distance > 10)
+      {
+         currentPolyline++;
+         coordinates[currentPolyline] = [];
 
-     console.log(coordinates[0][0]);
-     initMap(coordinates[0]);
+      }
+    }
+   
+    coordinates[currentPolyline].push(point);
+
+     console.log(coordinates[currentPolyline]);
+     initMap(coordinates[currentPolyline]);
   // ... 
   });
 
