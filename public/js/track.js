@@ -258,9 +258,11 @@ function initMap(polyCordinates, pmarkers, polys){
 
    
    map.setCenter(polyCordinates[polyCordinates.length-1]);
+
+   var pcors = polyCordinates.slice(polyCordinates.length-9, polyCordinates.length) 
   
   var poly = new google.maps.Polyline({
-        path: polyCordinates,
+        path: pcors,
         geodesic: true,
         strokeColor: '#27ae60',
         strokeOpacity: 1.0,
