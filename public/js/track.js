@@ -222,7 +222,7 @@ function initialize() {
         }
         });
           
-          pmarkers.forEach(function(marks, index) {
+          polyMarkers.forEach(function(marks, index) {
              for(i=0; i< marks.length; i++){
               marks[i].setMap(null);
             } 
@@ -234,8 +234,8 @@ function initialize() {
               polys[valueSelected][i].setMap(map);
           }
 
-          for(i=0; i< pmarkers[valueSelected].length; i++){
-              pmarkers[valueSelected][i].setMap(map);
+          for(i=0; i< polyMarkers[valueSelected].length; i++){
+              polyMarkers[valueSelected][i].setMap(map);
             } 
 
       }  
