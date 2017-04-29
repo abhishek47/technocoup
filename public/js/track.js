@@ -248,7 +248,7 @@ function initMap(polyCordinates, pmarkers, polys){
     });    
     
      var path = poly.getPath();
-    polys.push(poly);
+    polylines.push(poly);
     placeIdArray = [];
     runSnapToRoad(path, pmarkers, polys);
   
