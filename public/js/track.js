@@ -4,6 +4,7 @@ var map;
 var drawingManager;
 var placeIdArray = [];
 var polylines = [];
+var polys = [];
 var snappedCoordinates = [];
 var coordinates = [];
 var  polylinePlanCoordinates = [];
@@ -136,6 +137,8 @@ function initialize() {
  coordinates[currentPolyline] = [];
 
  polyMarkers[currentPolyline] = [];
+
+ polys[currentPolyline] = [];
  
   $('#trip-selector').append('<option value="' + -1 + '">All Trips' + '</option>');
  $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + (currentPolyline+1) + '</option>');
@@ -160,6 +163,7 @@ function initialize() {
          $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + (currentPolyline+1) + '</option>');
          coordinates[currentPolyline] = [];
          polyMarkers[currentPolyline] = [];
+         polys[currentPolyline] = [];
 
       }
     }
@@ -167,7 +171,7 @@ function initialize() {
     coordinates[currentPolyline].push(point);
 
      console.log(coordinates[currentPolyline]);
-     initMap(coordinates[currentPolyline],  polyMarkers[currentPolyline]);
+     initMap(coordinates[currentPolyline],  polyMarkers[currentPolyline], polys[currentPolyline]);
   // ... 
   });
 
@@ -200,18 +204,30 @@ function initialize() {
     $('#trip-selector').on('change', function (e) {
     var optionSelected = $("option:selected", this);
     var valueSelected = this.value;
-    
-     for (var i=0; i<polylines.length; i++) {
+     
+     if(valueSelected == -1)
+     {
+        polys.forEach(function(poly, index) {
+           for (var i=0; i<poly.length; i++) {
 
-          polylines[i].setMap(null);
-      }
+            poly[i].setMap(map);
+        }
+        });
+         
+     } else {
+         for (var i=0; i<polys[valueSelected].length; i++) {
+
+              polys[valueSelected][i].setMap(null);
+          }
+
+      }  
      
    });
     
 
 }
 
-function initMap(polyCordinates, pmarkers){
+function initMap(polyCordinates, pmarkers, polys){
 
    
    map.setCenter(polyCordinates[polyCordinates.length-1]);
@@ -225,7 +241,7 @@ function initMap(polyCordinates, pmarkers){
     });    
     
      var path = poly.getPath();
-    polylines.push(poly);
+    polys.push(poly);
     placeIdArray = [];
     runSnapToRoad(path, pmarkers);
   
@@ -245,7 +261,7 @@ function runSnapToRoad(path, pmarkers) {
   }, function(data) {
     processSnapToRoadResponse(data);
     drawSnappedPolyline(pmarkers);
-    getAndDrawSpeedLimits();
+  //  getAndDrawSpeedLimits();
   });
 }
 
@@ -289,7 +305,7 @@ function drawSnappedPolyline(pmarkers) {
   });
 
   snappedPolyline.setMap(map);
-  polylines.push(snappedPolyline);
+  polys.push(snappedPolyline);
    
    
     
