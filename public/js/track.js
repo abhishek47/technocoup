@@ -218,7 +218,7 @@ function initialize() {
           polys.forEach(function(poly, index) {
            for (var i=0; i<poly.length; i++) {
 
-            poly[i].setMap(map);
+            poly[i].setMap(null);
         }
         });
 
