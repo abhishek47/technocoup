@@ -46,13 +46,14 @@
       }
       /* Display the control once it is inside the map. */
       #map .map-control { display: block; position: absolute; top: 5px;
-        right: 50%;, z-index: 5;}
+        right: 50%;, z-index: 5; background-color: #fff;padding: 5px;border: 1px solid #999;}
 
       .selector-control {
         font-size: 14px;
         line-height: 30px;
         padding-left: 5px;
         padding-right: 5px;
+        width: 100px;
       }
     </style>
 
@@ -67,7 +68,6 @@
   <body>
      <div id="style-selector-control"  class="map-control">
       <select id="trip-selector" class="selector-control">
-        <option value="default">Trip 1</option>
       </select>
     </div>
     <div id="map"></div>
