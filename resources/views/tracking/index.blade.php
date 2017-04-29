@@ -53,11 +53,15 @@
         line-height: 30px;
         padding-left: 5px;
         padding-right: 5px;
-        width: 100px;
+        width: 200px;
       }
 
       .map-control p {
-        font-weight: bold;
+            margin: 0px;
+          margin-bottom: 7px;
+          margin-left: 2px;
+          font-size: 13px;
+          font-weight: bold;
       }
 
 
