@@ -137,6 +137,8 @@ function initialize() {
 
  polyMarkers[currentPolyline] = [];
 
+ $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + (currentPolyline+1) + '</option>');
+
 
   
  
@@ -154,7 +156,7 @@ function initialize() {
       if(distance > 1000)
       {
          currentPolyline++;
-         $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + currentPolyline + '</option>');
+         $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + (currentPolyline+1) + '</option>');
          coordinates[currentPolyline] = [];
          polyMarkers[currentPolyline] = [];
 
