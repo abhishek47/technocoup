@@ -45,7 +45,8 @@
         display: none;
       }
       /* Display the control once it is inside the map. */
-      #map .map-control { display: block; }
+      #map .map-control { display: block; position: absolute; top: 5px;
+        right: 10%;}
 
       .selector-control {
         font-size: 14px;
