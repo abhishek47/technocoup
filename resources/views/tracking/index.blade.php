@@ -48,6 +48,20 @@
       #map .map-control { display: block; position: absolute; top: 5px;
         right: 50%;, z-index: 5; background-color: #fff;padding: 5px;border: 1px solid #999;}
 
+        .vehicle-control {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        font-family: 'Roboto','sans-serif';
+        margin: 10px;
+        /* Hide the control initially, to prevent it from appearing
+           before the map loads. */
+        display: none;
+      }
+      /* Display the control once it is inside the map. */
+      #map .vehicle-control { display: block; position: absolute; top: 5px;
+        right: 90%;, z-index: 5; background-color: #fff;padding: 5px;border: 1px solid #999;}
+
       .selector-control {
         font-size: 14px;
         line-height: 30px;
@@ -56,7 +70,7 @@
         width: 200px;
       }
 
-      .map-control p {
+      .map-control p,.vehicle-control p  {
             margin: 0px;
           margin-bottom: 7px;
           margin-left: 2px;
@@ -81,6 +95,12 @@
       <select id="trip-selector" class="selector-control">
       </select>
     </div>
+
+    <div id="vehicle-selector-control"  class="vehicle-control">
+      <p>Choose Your Vehicle</p>
+      <input type="text" name="vehicle" id="vehicle">
+     </div>
+
     <div id="map"></div>
    
   </body>

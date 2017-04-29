@@ -120,6 +120,9 @@ function initialize() {
   var tripControl = document.getElementById('style-selector-control');
    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tripControl);
 
+   var vehicleControl = document.getElementById('vehicle-selector-control');
+   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(vehicleControl);
+
 
   // Initialize Firebase
   var config = {
