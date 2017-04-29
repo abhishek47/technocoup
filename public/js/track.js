@@ -221,11 +221,22 @@ function initialize() {
             poly[i].setMap(null);
         }
         });
+          
+          pmarkers.forEach(function(marks, index) {
+             for(i=0; i< marks.length; i++){
+              marks[i].setMap(null);
+            } 
+          });
+         
 
          for (var i=0; i<polys[valueSelected].length; i++) {
 
               polys[valueSelected][i].setMap(map);
           }
+
+          for(i=0; i< pmarkers[valueSelected].length; i++){
+              pmarkers[valueSelected][i].setMap(map);
+            } 
 
       }  
      
