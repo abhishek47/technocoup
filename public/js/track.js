@@ -215,9 +215,16 @@ function initialize() {
         });
          
      } else {
+          polys.forEach(function(poly, index) {
+           for (var i=0; i<poly.length; i++) {
+
+            poly[i].setMap(map);
+        }
+        });
+
          for (var i=0; i<polys[valueSelected].length; i++) {
 
-              polys[valueSelected][i].setMap(null);
+              polys[valueSelected][i].setMap(map);
           }
 
       }  
