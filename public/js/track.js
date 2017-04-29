@@ -136,7 +136,8 @@ function initialize() {
  coordinates[currentPolyline] = [];
 
  polyMarkers[currentPolyline] = [];
-
+ 
+  $('#trip-selector').append('<option value="' + -1 + '">All Trips' + '</option>');
  $('#trip-selector').append('<option value="' + currentPolyline + '">Trip ' + (currentPolyline+1) + '</option>');
 
 
