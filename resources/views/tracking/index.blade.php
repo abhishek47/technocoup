@@ -55,6 +55,12 @@
         padding-right: 5px;
         width: 100px;
       }
+
+      .map-control p {
+        font-weight: bold;
+      }
+
+
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -67,6 +73,7 @@
 
   <body>
      <div id="style-selector-control"  class="map-control">
+      <p>Filter Your Trips</p>
       <select id="trip-selector" class="selector-control">
       </select>
     </div>
