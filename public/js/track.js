@@ -243,12 +243,12 @@ function initMap(polyCordinates, pmarkers, polys){
      var path = poly.getPath();
     polys.push(poly);
     placeIdArray = [];
-    runSnapToRoad(path, pmarkers);
+    runSnapToRoad(path, pmarkers, polys);
   
 }
 
 // Snap a user-created polyline to roads and draw the snapped path
-function runSnapToRoad(path, pmarkers) {
+function runSnapToRoad(path, pmarkers, polys) {
   var pathValues = [];
   for (var i = 0; i < path.getLength(); i++) {
     pathValues.push(path.getAt(i).toUrlValue());
@@ -260,7 +260,7 @@ function runSnapToRoad(path, pmarkers) {
     path: pathValues.join('|')
   }, function(data) {
     processSnapToRoadResponse(data);
-    drawSnappedPolyline(pmarkers);
+    drawSnappedPolyline(pmarkers, polys);
   //  getAndDrawSpeedLimits();
   });
 }
@@ -297,7 +297,7 @@ function processSnapToRoadResponse(data) {
         
 
 // Draws the snapped polyline (after processing snap-to-road response).
-function drawSnappedPolyline(pmarkers) {
+function drawSnappedPolyline(pmarkers, polys) {
   var snappedPolyline = new google.maps.Polyline({
     path: snappedCoordinates,
     strokeColor: '#27ae60',
