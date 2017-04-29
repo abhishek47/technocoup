@@ -34,6 +34,25 @@
         width: 100%;
         box-sizing: border-box;
       }
+       .map-control {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        font-family: 'Roboto','sans-serif';
+        margin: 10px;
+        /* Hide the control initially, to prevent it from appearing
+           before the map loads. */
+        display: none;
+      }
+      /* Display the control once it is inside the map. */
+      #map .map-control { display: block; }
+
+      .selector-control {
+        font-size: 14px;
+        line-height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -45,6 +64,11 @@
   </head>
 
   <body>
+     <div id="style-selector-control"  class="map-control">
+      <select id="trip-selector" class="selector-control">
+        <option value="default">Trip 1</option>
+      </select>
+    </div>
     <div id="map"></div>
    
   </body>
