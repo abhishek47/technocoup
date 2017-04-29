@@ -116,6 +116,10 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  var tripControl = document.getElementById('style-selector-control');
+   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tripControl);
+
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAolQeHX7UuLRE1_psv6Zet2mI7vs4vFWs",
