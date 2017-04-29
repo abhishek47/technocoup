@@ -196,6 +196,17 @@ function initialize() {
     ]; 
     
     */
+
+    $('#trip-selector').on('change', function (e) {
+    var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+    
+     for (var i=0; i<polylines.length; i++) {
+
+          polylines[i].setMap(null);
+      }
+     
+   });
     
 
 }
