@@ -213,6 +213,11 @@ function initialize() {
             poly[i].setMap(map);
         }
         });
+
+        polyMarkers.forEach(function(marks, index) {
+            marks[0].setMap(map);
+              marks[marks.length-1].setMap(map);
+          });
          
      } else {
           polys.forEach(function(poly, index) {
@@ -234,9 +239,10 @@ function initialize() {
               polys[valueSelected][i].setMap(map);
           }
 
-          for(i=0; i< polyMarkers[valueSelected].length; i++){
-              polyMarkers[valueSelected][i].setMap(map);
-            } 
+          
+              polyMarkers[valueSelected][0].setMap(map);
+              polyMarkers[valueSelected][polyMarkers[valueSelected].length-1].setMap(map);
+            
 
       }  
      
