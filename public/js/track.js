@@ -149,7 +149,7 @@ function initialize() {
 
   
  
-  var userId = '9922367414';  
+  var userId = '9503063150';  
   database.ref('/users/' + userId + '/locations').on('child_added', function(snapshot) {
    
     newPoint = snapshot.val();
